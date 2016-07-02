@@ -1,0 +1,16 @@
+{
+  "list": [
+    {
+      "name": "Wade Wilson",
+      "email": "deadpool@email.com"
+    },
+    {
+      "name": "Tony Stark",
+      "email": "ironman@email.com"
+    },
+    {
+      "name": "Rainbow Dash",
+      "email": "friendshipismagic@email.com"
+    }
+  ]
+}
