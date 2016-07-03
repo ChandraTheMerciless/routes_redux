@@ -2,6 +2,7 @@ import React from 'react'
 import {render} from 'react-dom'
 import {Router, Route, Link, browserHistory, RouteHandler} from 'react-router'
 import {createStore} from 'redux'
+import NewUser from './new-user';
 
 
 //try to refactor this out since Scott said that we don't need global var with redux??
@@ -29,14 +30,6 @@ var Home = React.createClass({
                 <p>Welcome home, user.</p>
             </div>
         );
-    }
-});
-
-var NewUser = React.createClass({
-    render: function(){
-        return(
-            <button onClick={this.props.dispatchItem}>Dispatch</button>
-        )
     }
 });
 
@@ -78,6 +71,16 @@ class Users extends React.Component {
                                </li>
                     })}
                 </ul>
+
+                <div>
+                  <label>Name </label>
+                  <input type="text" id="new-user-name" />
+                </div>
+                <div>
+                  <label>Email </label>
+                  <input type="text" id="new-user-email" />
+                </div>
+                
                 <NewUser dispatchItem={self.reduxDispatch}  />
             </div>
         )
@@ -85,9 +88,11 @@ class Users extends React.Component {
 
     reduxDispatch() {
       console.log('dispatched...');
+      var newName = document.getElementById("new-user-name").value;
+      var newEmail = document.getElementById("new-user-email").value;
       userStore.dispatch({
         type: 'ADD_USER',
-        user: {name:"dummy dummy", email:'dummy@icct.com'}
+        user: {name:newName, email:newEmail}
       });
     }
 }
